@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookshelf</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header class="head">Bookshelf
+        <button id="add_btn" onclick="showForm()">+</button>
+    </header>
+    <div id="bookshelf" class="shelf"></div>
+    
+    <div id="add_form">
+        <input type="text" placeholder="Titel" class="text_field">
+        <input type="text" placeholder="Autor" class="text_field">
+        <input type="text" placeholder="Seiten" class="text_field">
+        <label>
+            <input type="checkbox" id="check">
+            Read
+        </label>
+        <button onclick="addBook(); clearForm(); hideForm();">Add</button>
+    </div>
+</body>
+</html>

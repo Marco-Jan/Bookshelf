@@ -1,0 +1,91 @@
+* { margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50pt;
+    
+}
+body {
+    background-color: rgba(77, 46, 7, 0.596);
+
+}
+
+.head {
+    margin: 0 auto;
+    height: 120px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 5px solid black;
+    
+}
+#add_btn{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(77, 46, 7, 0.596);
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 20pt;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+#add_btn:hover{
+    background-color: rgba(77, 46, 7, 0.8);
+}
+
+/* wenn buton gedrück. öffnet sich ein formular */
+
+#add_form{
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background-color: rgba(77, 46, 7, 0.596);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.text_field{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 20pt;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#check{
+    font-size: 20pt;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.shelf {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+.book {
+    text-align: center;
+    border: 2px solid black;
+    background-color: aqua;
+    width: 200px; 
+    margin: 10px; 
+}
+.remove_button {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    font-size: 10pt; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
