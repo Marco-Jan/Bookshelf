@@ -9,9 +9,10 @@
 body {
     display: grid;
     grid-template-rows: 1fr 6fr 1fr;
-    /* background-color: rgba(176, 179, 180, 0.596); */
+    background-color: rgba(176, 179, 180, 0.596);
     background-image: url(img/regal.png);
-    background-repeat: round;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 header {
     margin: 0 auto;
@@ -29,6 +30,7 @@ header {
     font-size: 50pt;
     font-weight: 400;
     justify-self: center;
+    border-bottom: 2px solid black;
 }
 
 #add_btn {
@@ -124,6 +126,7 @@ label{
     border: 2px solid black;
     background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
     background-repeat: round;
+    filter: drop-shadow(20px 20px 20px black);
     border-radius: 5px;
     width: 200px;
     height: 300px; 
