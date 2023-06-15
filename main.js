@@ -6,8 +6,8 @@ function Book(title, autor, pages, read) {
     this.read = read;
     this.info = function () {
         return `${this.title} von ${this.autor}, ${this.pages} Seiten, ${this.read}`;
-    }
-}
+     }
+ }
 
 // let book1 = new Book('Die Zeuginnen', 'Margaret Atwood', 576, 'noch nicht gelesen');
 // let book2 = new Book('Der Heinz', 'Gustaf', 276, 'gelesen')
@@ -17,12 +17,23 @@ function addBook() {
     let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value;
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
+
+    // Überprüfung, ob Eingabe eine Zahl ist
+    if (isNaN(pagesInput)) {
+        window.alert("Please enter a number for the pages");
+        return;
+    }
+
+    let alphanumericRegex = /^[a-zA-Z0-9]+$/;
+    if (!alphanumericRegex.test(titleInput) || !alphanumericRegex.test(authorInput)) {
+        window.alert("Please enter a valid title and author (letters and numbers only)");
+        return;
+    }
     let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
 
     let newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
     console.log(newBook.info());
 
-    // Hier kannst du den Code zum Hinzufügen des Buches zum Buchregal implementieren. buch soll wie ein buch auch ausehen
     let bookshelf = document.getElementById("bookshelf");
     let book = document.createElement("div");
     book.className = "book";
@@ -34,48 +45,44 @@ function addBook() {
 
     let author = document.createElement("h3");
     author.textContent = newBook.autor;
+    book.appendChild(author);
 
     let pages = document.createElement("p");
     pages.textContent = newBook.pages;
+    book.appendChild(pages);
 
     let read = document.createElement("p");
-    read.textContent = newBook.read;
-
-    book.appendChild(author);
-    book.appendChild(pages);
+    read.textContent = newBook.read ? "Read" : ""; 
     book.appendChild(read);
 
     let removeButton = document.createElement("remove_button");
+    removeButton.className = "remove_button";
     removeButton.textContent = "delete";
-    removeButton.addEventListener("click", function () {
+    removeButton.addEventListener("click", function() {
         book.remove();
-    }
-    );
-
+    });
     book.appendChild(removeButton);
+
+    clearForm();
+    hideForm(); // Das Formular wird nach dem Hinzufügen des Buches ausgeblendet
 }
 
-// funtion um den input des vormulares vor dem schließen zu löschen
 function clearForm() {
     let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value = "";
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value = "";
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value = "";
-    let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked = false;
+    let readCheckbox = document.querySelector('[type="checkbox"]').checked = false; // readCheckbox auf false setzen
 }
-
-
-
 
 function showForm() {
     let form = document.getElementById("add_form");
     form.style.display = "block";
 }
 
-
-
 function hideForm() {
     let form = document.getElementById("add_form");
     form.style.display = "none";
 }
+
 
 
