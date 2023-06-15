@@ -13,7 +13,7 @@ body {
     margin: 0 auto;
     height: 120px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     border-bottom: 5px solid black;
     
@@ -28,6 +28,7 @@ body {
     font-weight: bold;
     color: white;
     cursor: pointer;
+    margin-left: 50px;
 }
 #add_btn:hover{
     background-color: rgba(77, 46, 7, 0.8);
