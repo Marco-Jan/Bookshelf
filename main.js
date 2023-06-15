@@ -18,7 +18,7 @@ function addBook() {
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
 
-    // Überprüfung, ob Eingabe eine Zahl ist
+    
     if (isNaN(pagesInput)) {
         window.alert("Please enter a number for the pages");
         return;
@@ -64,14 +64,14 @@ function addBook() {
     book.appendChild(removeButton);
 
     clearForm();
-    hideForm(); // Das Formular wird nach dem Hinzufügen des Buches ausgeblendet
+    hideForm(); 
 }
 
 function clearForm() {
     let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value = "";
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value = "";
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value = "";
-    let readCheckbox = document.querySelector('[type="checkbox"]').checked = false; // readCheckbox auf false setzen
+    let readCheckbox = document.querySelector('[type="checkbox"]').checked = false; 
 }
 
 function showForm() {
