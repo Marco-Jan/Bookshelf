@@ -15,27 +15,25 @@ function addBook() {
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
 
-    let alphanumerictest = /^[a-zA-Z0-9!?.:()+-;]+$/;
+    let alphanumerictest = /^[a-zA-Z0-9!?.:()+-;" "]+$/;
     if (isNaN(pagesInput)) {
         window.alert("Please enter a number for the pages");
-
     }
 
-
-    else if (!alphanumerictest.test(titleInput)  || !alphanumerictest.test ) {
+    else if (!alphanumerictest.test(titleInput) || !alphanumerictest.test(authorInput)) {
         window.alert("Please enter a valid title and author");
 
     } else {
         let form = document.getElementById("add_form");
 
         let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
-
         let newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
         console.log(newBook.info());
 
         let bookshelf = document.getElementById("bookshelf");
         let book = document.createElement("div");
-        book.className = "book";
+        book.className = "book"
+
         bookshelf.appendChild(book);
 
         let title = document.createElement("h2");
@@ -47,23 +45,29 @@ function addBook() {
         book.appendChild(author);
 
         let pages = document.createElement("p");
+        pages.className = "pages";
         pages.textContent = newBook.pages;
         book.appendChild(pages);
 
         let read = document.createElement("p");
+        read.className = "read";
         read.textContent = newBook.read ? "read" : "no read";
         book.appendChild(read);
+
+        let readText = document.createElement("span");
+        readText.className = "read_text";
+        readText.textContent = "read or not read";
+        book.appendChild(readText);
 
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = "modi_checkbox";
-        checkbox.textContent = newBook.read ? "read" : "not read";
         checkbox.checked = newBook.read;
         checkbox.addEventListener("change", function () {
             if (this.checked) {
                 read.textContent = "read";
             } else {
-                read.textContent = "no read";
+                read.textContent = "not read";
             }
         });
         book.appendChild(checkbox);
@@ -96,7 +100,7 @@ function clearForm() {
 
 function showForm() {
     let form = document.getElementById("add_form");
-    form.style.display = "block";
+    form.style.display = "flex";
 }
 
 

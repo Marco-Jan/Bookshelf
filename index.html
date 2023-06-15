@@ -6,12 +6,17 @@
     <title>My Bookshelf</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="head">Bookshelf
+    <header class="head">
+        <div class="titel">Your bookshelf</div>
         <button id="add_btn" onclick="showForm()">+</button>
     </header>
     <div id="bookshelf" class="shelf"></div>
+    
     
     <div id="add_form">
         <input type="text" placeholder="Titel" class="text_field">

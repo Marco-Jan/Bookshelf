@@ -1,50 +1,64 @@
-* { margin: 0;
+* {
+    margin: 0;
     padding: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 50pt;
-    
+    font-weight: 300;
 }
+
 body {
-    background-color: rgba(77, 46, 7, 0.596);
-
+    background-color: rgba(176, 179, 180, 0.596);
 }
 
-.head {
+header {
     margin: 0 auto;
     height: 120px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     border-bottom: 5px solid black;
-    
 }
-#add_btn{
+
+.titel {
+    grid-column: 2;
+    font-size: 50pt;
+    font-weight: 300;
+    justify-self: center;
+}
+
+#add_btn {
+    grid-column: 3;
+    justify-self: end;
+    margin-right: 80px;
     width: 50px;
     height: 50px;
-    background-color: rgba(77, 46, 7, 0.596);
+    background-color: rgba(7, 35, 77, 0.596);
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 25px;
     font-size: 20pt;
     font-weight: bold;
     color: white;
     cursor: pointer;
-    margin-left: 50px;
 }
-#add_btn:hover{
+
+#add_btn:hover {
     background-color: rgba(77, 46, 7, 0.8);
 }
 
-/* wenn buton gedrück. öffnet sich ein formular */
 
-#add_form{
-    display: none;
+#add_form{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 150px;
     left: 50%;
     transform: translateX(-50%);
     width: 500px;
     height: 500px;
-    background-color: rgba(77, 46, 7, 0.596);
+    background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
+    background-repeat: round;
     border: 2px solid black;
     border-radius: 10px;
     padding: 20px;
@@ -52,56 +66,37 @@ body {
     z-index: 1;
 }
 .text_field{
-    width: 100%;
-    height: 50px;
+    justify-self: center;
+    width: 200px;
+    height: 30px;
     margin-bottom: 20px;
     font-size: 20pt;
     border: 2px solid black;
+    background-color: rgba(19, 77, 7, 0.596);
     border-radius: 10px;
     padding: 10px;
-    box-sizing: border-box;
+;
 }
 #check{
-    font-size: 20pt;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
     cursor: pointer;
+} 
+label{
+    font-size: 20pt;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
 }
+
 .shelf {
-    display: flex; 
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap; 
-}
-.book {
-    text-align: center;
-    border: 2px solid black;
-    background-color: rgba(111, 0, 255, 0.678);
-    border-radius: 20px;
-    width: 200px; 
-    margin: 10px; 
-}
-.remove_button {
-    padding: 5px;
-    width: 80px;
-    height: 50px;
-    text-align: center;
-    background-color: rgb(25, 68, 187);
-    border-radius: 10%;
-    color: white;
-    font-size: 15pt; 
-    font-weight: bold;
-    cursor: pointer;
-}
-label {
-    font-size: 20pt;
-    font-weight: bold;
 }
 #add_btn2{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin: 50px 0 0 180px;
+    margin-top: 20px;
     width: 80px;
     height: 50px;
     background-color: rgba(19, 77, 7, 0.596);
@@ -109,17 +104,70 @@ label {
     border-radius: 10px;
     font-size: 20pt;
     font-weight: bold;
-    color: white;
+    color: rgb(117, 113, 113);
     cursor: pointer;
 }
-h3, h2, p{
+#add_btn2:hover{
+    background-color: rgba(77, 46, 7, 0.8);
+    color: white;
+}
+.book {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat (7, 1fr);
+    border: 2px solid black;
+    background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
+    background-repeat: round;
+    border-radius: 5px;
+    width: 200px; 
+    margin: 50px;
+    padding: 50px; 
+}
+.book h3, h2, .pages, .read, .read_text{
+    color: rgb(195, 213, 230);
+    text-align: center;
     font-size: 20pt;
     font-weight: bold;
-    color: rgb(180, 177, 177);
+    margin: 10px;
+    filter: drop-shadow(2px 2px 2px black);
+}
+
+h3{
+    grid-row: 1;
+}
+h2{
+    grid-row: 2; 
+}
+.pages{
+    grid-row: 3;
+}
+.read{
+    grid-row: 4;   
 }
 
 #modi_checkbox{
-
-    margin-right: 50px;
+    font-size: 20pt;
+    grid-row: 5;
+    margin-top: 10px;
+}
+.read_text{
+     grid-row: 6;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.remove_button {
+    font-size: 20pt;
+    margin-top: 20px;
+    padding: 5px;
+    grid-row: 7;
+    width: 80px;
+    height: 50px;
+    background-color: rgb(124, 69, 69);
+    border-radius: 10%;
+    color: white;
+    font-size: 15pt; 
+    font-weight: bold;
+    cursor: pointer;
 }
 
