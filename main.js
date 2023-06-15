@@ -1,88 +1,104 @@
-// books create
-function Book(title, autor, pages, read) {
+
+function Book(title, author, pages, read) {
     this.title = title;
-    this.autor = autor;
+    this.author = author;
     this.pages = pages;
     this.read = read;
     this.info = function () {
-        return `${this.title} von ${this.autor}, ${this.pages} Seiten, ${this.read}`;
-     }
- }
+        return `${this.title} von ${this.author}, ${this.pages} Seiten, ${this.read}`;
+    };
+}
 
-// let book1 = new Book('Die Zeuginnen', 'Margaret Atwood', 576, 'noch nicht gelesen');
-// let book2 = new Book('Der Heinz', 'Gustaf', 276, 'gelesen')
-// console.log(book1.info(), book2.info());
 
 function addBook() {
     let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value;
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
 
-    
+    let alphanumerictest = /^[a-zA-Z0-9!?.:()+-;]+$/;
     if (isNaN(pagesInput)) {
         window.alert("Please enter a number for the pages");
-        return;
+
     }
 
-    let alphanumericRegex = /^[a-zA-Z0-9]+$/;
-    if (!alphanumericRegex.test(titleInput) || !alphanumericRegex.test(authorInput)) {
-        window.alert("Please enter a valid title and author (letters and numbers only)");
-        return;
+
+    else if (!alphanumerictest.test(titleInput)  || !alphanumerictest.test ) {
+        window.alert("Please enter a valid title and author");
+
+    } else {
+        let form = document.getElementById("add_form");
+
+        let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
+
+        let newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
+        console.log(newBook.info());
+
+        let bookshelf = document.getElementById("bookshelf");
+        let book = document.createElement("div");
+        book.className = "book";
+        bookshelf.appendChild(book);
+
+        let title = document.createElement("h2");
+        title.textContent = newBook.title;
+        book.appendChild(title);
+
+        let author = document.createElement("h3");
+        author.textContent = newBook.author;
+        book.appendChild(author);
+
+        let pages = document.createElement("p");
+        pages.textContent = newBook.pages;
+        book.appendChild(pages);
+
+        let read = document.createElement("p");
+        read.textContent = newBook.read ? "read" : "no read";
+        book.appendChild(read);
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "modi_checkbox";
+        checkbox.textContent = newBook.read ? "read" : "not read";
+        checkbox.checked = newBook.read;
+        checkbox.addEventListener("change", function () {
+            if (this.checked) {
+                read.textContent = "read";
+            } else {
+                read.textContent = "no read";
+            }
+        });
+        book.appendChild(checkbox);
+
+        let removeButton = document.createElement("button");
+        removeButton.className = "remove_button";
+        removeButton.textContent = "delete";
+        removeButton.addEventListener("click", function () {
+            book.remove();
+        });
+        book.appendChild(removeButton);
+
+        showForm();
+        clearForm();
+
+        form.style.display = "none";
+
     }
-    let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
-
-    let newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
-    console.log(newBook.info());
-
-    let bookshelf = document.getElementById("bookshelf");
-    let book = document.createElement("div");
-    book.className = "book";
-    bookshelf.appendChild(book);
-
-    let title = document.createElement("h2");
-    title.textContent = newBook.title;
-    book.appendChild(title);
-
-    let author = document.createElement("h3");
-    author.textContent = newBook.autor;
-    book.appendChild(author);
-
-    let pages = document.createElement("p");
-    pages.textContent = newBook.pages;
-    book.appendChild(pages);
-
-    let read = document.createElement("p");
-    read.textContent = newBook.read ? "Read" : ""; 
-    book.appendChild(read);
-
-    let removeButton = document.createElement("remove_button");
-    removeButton.className = "remove_button";
-    removeButton.textContent = "delete";
-    removeButton.addEventListener("click", function() {
-        book.remove();
-    });
-    book.appendChild(removeButton);
-
-    clearForm();
-    hideForm(); 
 }
 
 function clearForm() {
-    let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value = "";
-    let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value = "";
-    let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value = "";
-    let readCheckbox = document.querySelector('[type="checkbox"]').checked = false; 
+    document.querySelector('#add_form input:nth-of-type(1)').value = "";
+    document.querySelector('#add_form input:nth-of-type(2)').value = "";
+    document.querySelector('#add_form input:nth-of-type(3)').value = "";
+    document.querySelector('#add_form input[type="checkbox"]').checked = false;
 }
+
+
+
 
 function showForm() {
     let form = document.getElementById("add_form");
     form.style.display = "block";
 }
 
-function hideForm() {
-    let form = document.getElementById("add_form");
-    form.style.display = "none";
-}
 
 
 
