@@ -15,10 +15,14 @@ function addBook() {
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
     let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
 
+    let pagestest = /^[0-9]+$/;
+
+
     let alphanumerictest = /^[a-zA-Z0-9!?.:()+-;" "]+$/;
-    if (isNaN(pagesInput)) {
+    if (!pagestest.test(pagesInput)) {
         window.alert("Please enter a number for the pages");
     }
+    
 
     else if (!alphanumerictest.test(titleInput) || !alphanumerictest.test(authorInput)) {
         window.alert("Please enter a valid title and author");
