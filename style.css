@@ -67,6 +67,7 @@ header {
     background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
     background-repeat: round;
     border: 2px solid black;
+    filter: drop-shadow(10px 10px 10px black);
     border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;

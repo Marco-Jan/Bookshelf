@@ -67,7 +67,7 @@ function addBook() {
         checkbox.type = "checkbox";
         checkbox.id = "modi_checkbox";
         checkbox.checked = newBook.read;
-        checkbox.addEventListener("change", function () {
+        checkbox.addEventListener("change", () => {
             if (this.checked) {
                 read.textContent = "read";
             } else {
@@ -79,7 +79,7 @@ function addBook() {
         let removeButton = document.createElement("button");
         removeButton.className = "remove_button";
         removeButton.textContent = "delete";
-        removeButton.addEventListener("click", function () {
+        removeButton.addEventListener("click", () => {
             book.remove();
         });
         book.appendChild(removeButton);
