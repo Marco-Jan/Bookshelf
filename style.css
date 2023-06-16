@@ -180,6 +180,11 @@ h2{
     cursor: pointer;
 }
 
+.remove_button:hover {
+    background-color: rgba(226, 75, 75, 0.8);
+}
+
+
 footer {
     display: flex;
     justify-content: flex-end;
