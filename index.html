@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="head">
@@ -17,8 +17,7 @@
     </header>
     <div id="bookshelf" class="shelf"></div>
     
-    
-    <div id="add_form">
+    <div id="add_form" style="display: none;">
         <input type="text" placeholder="Titel" class="text_field">
         <input type="text" placeholder="Author" class="text_field">
         <input type="text" placeholder="Pages" class="text_field">
@@ -26,17 +25,13 @@
             <input type="checkbox" id="check">
             Read
         </label>
-        <button id="add_btn2" onclick="addBook(); ">Add</button>
+        <button id="add_btn2" onclick="addBook();">Add</button>
     </div>
 
     <footer>
         <div class="footer_text">
             <p>Created by Baloou 2023</p>
         </div>
-
-
     </footer>
-
-    
 </body>
 </html>
