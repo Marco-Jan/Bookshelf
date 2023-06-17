@@ -134,7 +134,7 @@ label{
     margin: 50px;
     padding: 50px; 
 }
-.book h3, h2, .pages, .read, .read_text{
+.book, h2, p, .pages, .read, .read_text{
     color: rgb(195, 213, 230);
     text-align: center;
     font-size: 15pt;
