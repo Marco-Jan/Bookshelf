@@ -1,18 +1,10 @@
-let form = document.getElementById('add_form');
-let add_btn_form = document.getElementById('add_btn2');
-let read_btn = document.getElementsByClassName('text_field');
-let open_form = document.getElementById('add_btn');
 
-
-// Event Listener hinzufügen
-open_form.addEventListener("click", showForm);
-add_btn_form.addEventListener("click", addBook);
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    
+   
 }
 
 
@@ -36,7 +28,7 @@ function addBook() {
 
         let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
         let newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
-
+    
 
         let bookshelf = document.getElementById("bookshelf");
         let book = document.createElement("div");
