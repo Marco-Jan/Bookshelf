@@ -5,12 +5,14 @@ function Book(title, author, pages, read) {
     this.read = read;
     this.id = generateUniqueId();
   }
+
+  let counter = 1;
   
   function generateUniqueId() {
-    // Diese Funktion generiert eine eindeutige ID für jedes Buch
-    return '_' + Math.random().toString(36).substr(2, 9);
+    const uniqueId = `book-${counter}`;
+    counter++;
+    return uniqueId;
   }
-  
   function addBook() {
     let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value;
     let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
