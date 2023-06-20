@@ -203,16 +203,18 @@ footer {
   margin-right: 50px;
 }
 
-@media only screen and (min-width: 768px) {
-  .titel {
+@media only screen and (max-width: 768px) {
+
+    .titel {
     grid-column: 2;
     font-size: 30pt;
-    font-weight: 300;
+    font-weight: 400;
     justify-self: center;
     text-align: center;
     border-bottom: 2px solid black;
   }
-}
-#add_btn {
-  margin-right: 40px;
+
+    #add_btn {
+    margin-right: 40px;
+    }
 }
