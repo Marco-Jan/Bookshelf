@@ -1,200 +1,218 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-    font-size: 50pt;
-    font-weight: 300;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 50pt;
+  font-weight: 400;
 }
 
 body {
-    display: grid;
-    grid-template-rows: 1fr 6fr 1fr;
-    background-color: rgba(176, 179, 180, 0.596);
-    background-image: url(img/regal.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: grid;
+  grid-template-rows: 1fr 6fr 1fr;
+  background-color: rgba(176, 179, 180, 0.596);
+  background-image: url(img/regal.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 header {
-    margin: 0 auto;
-    height: 120px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    background-color:  rgba(77, 49, 7, 0.3);
-   
+  margin: 0 auto;
+  height: 120px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  background-color: rgba(77, 49, 7, 0.3);
 }
 
 .titel {
-    grid-column: 2;
-    font-size: 50pt;
-    font-weight: 400;
-    justify-self: center;
-    border-bottom: 2px solid black;
+  grid-column: 2;
+  font-size: 40pt;
+  font-weight: 300;
+  justify-self: center;
+  border-bottom: 2px solid black;
 }
 
 #add_btn {
-    grid-column: 3;
-    justify-self: end;
-    margin-right: 80px;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(7, 35, 77, 0.596);
-    border: 2px solid black;
-    border-radius: 25px;
-    font-size: 20pt;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
+  grid-column: 3;
+  justify-self: end;
+  margin-right: 80px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(7, 35, 77, 0.596);
+  border: 2px solid black;
+  border-radius: 25px;
+  font-size: 20pt;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 }
 
 #add_btn:hover {
-    background-color: rgba(77, 46, 7, 0.8);
+  background-color: rgba(77, 46, 7, 0.8);
 }
 
-
-#add_form{ 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 500px;
-    background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
-    background-repeat: round;
-    border: 2px solid black;
-    filter: drop-shadow(10px 10px 10px black);
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-    z-index: 1;
+#add_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 500px;
+  background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
+  background-repeat: round;
+  border: 2px solid black;
+  filter: drop-shadow(10px 10px 10px black);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
 }
-.text_field{
-    justify-self: center;
-    width: 200px;
-    height: 30px;
-    margin-bottom: 20px;
-    font-size: 20pt;
-    border: 2px solid black;
-    background-color: rgba(19, 77, 7, 0.596);
-    border-radius: 10px;
-    padding: 10px;
-;
+.text_field {
+  justify-self: center;
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px;
+  font-size: 20pt;
+  border: 2px solid black;
+  background-color: rgba(19, 77, 7, 0.596);
+  border-radius: 10px;
+  padding: 10px;
 }
-#check{
-    cursor: pointer;
-} 
-label{
-    font-size: 20pt;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
+#check {
+  cursor: pointer;
+}
+label {
+  font-size: 20pt;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
 }
 
 .shelf {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-#add_btn2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin-top: 20px;
-    width: 80px;
-    height: 50px;
-    background-color: rgba(19, 77, 7, 0.596);
-    border: 2px solid black;
-    border-radius: 10px;
-    font-size: 20pt;
-    font-weight: bold;
-    color: rgb(117, 113, 113);
-    cursor: pointer;
+#add_btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  width: 80px;
+  height: 50px;
+  background-color: rgba(19, 77, 7, 0.596);
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 20pt;
+  font-weight: bold;
+  color: rgb(117, 113, 113);
+  cursor: pointer;
 }
-#add_btn2:hover{
-    background-color: rgba(77, 46, 7, 0.8);
-    color: white;
+#add_btn2:hover {
+  background-color: rgba(77, 46, 7, 0.8);
+  color: white;
 }
 .book {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat (7, 1fr);
-    border: 2px solid black;
-    background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
-    background-repeat: round;
-    filter: drop-shadow(20px 20px 20px black);
-    border-radius: 5px;
-    width: 200px;
-    height: 300px; 
-    margin: 50px;
-    padding: 50px; 
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  border: 2px solid black;
+  background-image: url(img/grungy-front-book-cover-3-780x1008.jpg);
+  background-repeat: round;
+  border-radius: 5px;
+  width: 200px;
+  height: 300px;
+  padding: 50px;
+  margin: 50px;
+  filter: drop-shadow(2px 2px 2px black);
+  color: rgb(195, 213, 230);
+  text-align: center;
+  font-size: 15pt;
+  font-weight: bold;
 }
-.book, h3 ,h2, p, .pages, .read, .read_text{
-    color: rgb(195, 213, 230);
-    text-align: center;
-    font-size: 15pt;
-    font-weight: bold;
-    margin: 0 0 10px 0;; 
-    filter: drop-shadow(2px 2px 2px black);
-}
-
-h3{
-    grid-row: 1;
-}
-h2{
-    grid-row: 2; 
-}
-.pages{
-    grid-row: 3;
-}
-.read{
-    grid-row: 4;   
+h3,
+h2,
+p,
+.pages,
+.read,
+.read_text {
+  color: rgb(195, 213, 230);
+  text-align: center;
+  font-size: 15pt;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  filter: drop-shadow(2px 2px 2px black);
 }
 
-#modi_checkbox{
-    font-size: 20pt;
-    grid-row: 5;
-    margin-top: 10px;
+h3 {
+  grid-row: 1;
 }
-.read_text{
-     grid-row: 6;
-    font-size: 10pt;
-    font-weight: bold;
+h2 {
+  grid-row: 2;
+}
+.pages {
+  grid-row: 3;
+}
+.read {
+  grid-row: 4;
+}
+
+#modi_checkbox {
+  font-size: 20pt;
+  grid-row: 5;
+  margin-top: 10px;
+}
+.read_text {
+  grid-row: 6;
+  font-size: 10pt;
+  font-weight: bold;
 }
 .remove_button {
-    font-size: 20pt;
-    margin-top: 20px;
-    padding: 5px;
-    grid-row: 7;
-    width: 80px;
-    height: 50px;
-    background-color: rgb(124, 69, 69);
-    border-radius: 10%;
-    color: white;
-    font-size: 15pt; 
-    font-weight: bold;
-    cursor: pointer;
+  font-size: 20pt;
+  margin-top: 20px;
+  padding: 5px;
+  grid-row: 7;
+  width: 80px;
+  height: 50px;
+  background-color: rgb(124, 69, 69);
+  border-radius: 10%;
+  color: white;
+  font-size: 15pt;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .remove_button:hover {
-    background-color: rgba(226, 75, 75, 0.8);
+  background-color: rgba(226, 75, 75, 0.8);
 }
-
 
 footer {
-    display: flex;
-    justify-content: flex-end;
-    height: 80px;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  height: 80px;
+  align-items: center;
 }
 .footer_text p {
-    font-size: 20pt;
-    font-weight: 400;
-    color: rgb(0, 0, 0);
-    margin-right: 50px;
+  font-size: 20pt;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  margin-right: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  .titel {
+    grid-column: 2;
+    font-size: 30pt;
+    font-weight: 300;
+    justify-self: center;
+    text-align: center;
+    border-bottom: 2px solid black;
+  }
+}
+#add_btn {
+  margin-right: 40px;
 }

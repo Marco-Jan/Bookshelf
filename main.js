@@ -6,6 +6,7 @@ function Book(title, author, pages, read) {
     this.id = generateUniqueId();
   }
 
+  //Id ersteller
   let counter = 1;
   
   function generateUniqueId() {
@@ -14,53 +15,56 @@ function Book(title, author, pages, read) {
     return uniqueId;
   }
   function addBook() {
-    let titleInput = document.querySelector('#add_form input:nth-of-type(1)').value;
-    let authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
-    let pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
+    const titleInput = document.querySelector('#add_form input:nth-of-type(1)').value;
+    const authorInput = document.querySelector('#add_form input:nth-of-type(2)').value;
+    const pagesInput = document.querySelector('#add_form input:nth-of-type(3)').value;
   
-    let pagestest = /^[0-9]+$/;
-    let alphanumerictest = /^[a-zA-Z0-9!?.:()+-;" "]+$/;
+    const pagestest = /^[0-9]+$/;
+    const alphanumerictest = /^[a-zA-Z0-9!?.:()+-;" "]+$/;
   
     if (!pagestest.test(pagesInput)) {
       window.alert("Please enter a number for the pages");
     } else if (!alphanumerictest.test(titleInput) || !alphanumerictest.test(authorInput)) {
       window.alert("Please enter a valid title and author");
     } else {
-      let form = document.getElementById("add_form");
-      let readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
-      let newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
+      const form = document.getElementById("add_form");
+      const readCheckbox = document.querySelector('#add_form input[type="checkbox"]').checked;
+      const newBook = new Book(titleInput, authorInput, pagesInput, readCheckbox);
   
-      let bookshelf = document.getElementById("bookshelf");
-      let book = document.createElement("div");
+      const bookshelf = document.getElementById("bookshelf");
+      const book = document.createElement("div");
       book.className = "book";
-      book.dataset.id = newBook.id; // Weisen Sie die ID als Datensatzattribut zu
+
+      //  ID zuweisung
+      book.dataset.id = newBook.id;
   
       bookshelf.appendChild(book);
   
-      let title = document.createElement("h2");
+      //bau des buches
+      const title = document.createElement("h2");
       title.textContent = newBook.title;
       book.appendChild(title);
   
-      let author = document.createElement("h3");
+      const author = document.createElement("h3");
       author.textContent = newBook.author;
       book.appendChild(author);
   
-      let pages = document.createElement("p");
+      const pages = document.createElement("p");
       pages.className = "pages";
       pages.textContent = newBook.pages;
       book.appendChild(pages);
   
-      let read = document.createElement("p");
+      const read = document.createElement("p");
       read.className = "read";
       read.textContent = newBook.read ? "read" : "no read";
       book.appendChild(read);
   
-      let readText = document.createElement("span");
+      const readText = document.createElement("span");
       readText.className = "read_text";
       readText.textContent = "read or not read";
       book.appendChild(readText);
   
-      let checkbox = document.createElement("input");
+      const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.id = "modi_checkbox";
       checkbox.checked = newBook.read;
@@ -72,8 +76,8 @@ function Book(title, author, pages, read) {
         }
       });
       book.appendChild(checkbox);
-  
-      let removeButton = document.createElement("button");
+      //remove btn
+      const removeButton = document.createElement("button");
       removeButton.className = "remove_button";
       removeButton.textContent = "delete";
       removeButton.addEventListener("click", function () {
@@ -86,17 +90,17 @@ function Book(title, author, pages, read) {
   
       form.style.display = "none";
   
-      saveBooksToLocalStorage(); // Speichern Sie die Bücher im Local Storage
+      saveBooksToLocalStorage(); 
     }
   }
-  
+  //speicherung im local.storage
   function saveBooksToLocalStorage() {
-    let books = getBooksFromLocalStorage(); // Holen Sie sich alle Bücher aus dem Local Storage
-    let bookElements = document.querySelectorAll('.book');
+    const books = getBooksFromLocalStorage(); 
+    const bookElements = document.querySelectorAll('.book');
   
-    // Iterieren Sie über die Buchelemente und fügen Sie sie zur Bücherliste hinzu
+    
     bookElements.forEach(function (bookElement) {
-      let bookId = bookElement.dataset.id;
+      const bookId = bookElement.dataset.id;
       books[bookId] = {
         title: bookElement.querySelector("h2").textContent,
         author: bookElement.querySelector("h3").textContent,
@@ -105,48 +109,48 @@ function Book(title, author, pages, read) {
       };
     });
   
-    localStorage.setItem('books', JSON.stringify(books)); // Speichern Sie die Bücherliste im Local Storage
+    localStorage.setItem('books', JSON.stringify(books)); 
   }
-  
+  //holen vom local.storage
   function getBooksFromLocalStorage() {
-    let books = localStorage.getItem('books');
-    return books ? JSON.parse(books) : {}; // Parset die gespeicherten Bücher, falls vorhanden
+    const books = localStorage.getItem('books');
+    return books ? JSON.parse(books) : {};
   }
   
   function loadBooksFromLocalStorage() {
-    let books = getBooksFromLocalStorage();
+    const books = getBooksFromLocalStorage();
   
-    for (let bookId in books) {
-      let bookData = books[bookId];
+    for (const bookId in books) {
+      const bookData = books[bookId];
   
-      let book = document.createElement("div");
+      const book = document.createElement("div");
       book.className = "book";
       book.dataset.id = bookId;
   
-      let title = document.createElement("h2");
+      const title = document.createElement("h2");
       title.textContent = bookData.title;
       book.appendChild(title);
   
-      let author = document.createElement("h3");
+      const author = document.createElement("h3");
       author.textContent = bookData.author;
       book.appendChild(author);
   
-      let pages = document.createElement("p");
+      const pages = document.createElement("p");
       pages.className = "pages";
       pages.textContent = bookData.pages;
       book.appendChild(pages);
   
-      let read = document.createElement("p");
+      const read = document.createElement("p");
       read.className = "read";
       read.textContent = bookData.read ? "read" : "no read";
       book.appendChild(read);
   
-      let readText = document.createElement("span");
+      const readText = document.createElement("span");
       readText.className = "read_text";
       readText.textContent = "read or not read";
       book.appendChild(readText);
   
-      let checkbox = document.createElement("input");
+      const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.id = "modi_checkbox";
       checkbox.checked = bookData.read;
@@ -164,7 +168,7 @@ function Book(title, author, pages, read) {
       removeButton.textContent = "delete";
       removeButton.addEventListener("click", function () {
         book.remove();
-        saveBooksToLocalStorage(); // Speichern Sie die Änderungen im Local Storage
+        saveBooksToLocalStorage(); 
       });
       book.appendChild(removeButton);
   
@@ -180,10 +184,8 @@ function Book(title, author, pages, read) {
   }
   
   function showForm() {
-    let form = document.getElementById("add_form");
+    const form = document.getElementById("add_form");
     form.style.display = "flex";
   }
-  
-  // Rufen Sie die Funktion zum Laden der Bücher aus dem Local Storage auf
   loadBooksFromLocalStorage();
   
